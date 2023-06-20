@@ -1,4 +1,4 @@
-package com.binaryho.core.domain;
+package com.binaryho.core.whiteship.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

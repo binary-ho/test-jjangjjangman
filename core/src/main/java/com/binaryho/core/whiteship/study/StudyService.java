@@ -1,8 +1,8 @@
-package com.binaryho.core.study;
+package com.binaryho.core.whiteship.study;
 
-import com.binaryho.core.domain.Member;
-import com.binaryho.core.domain.Study;
-import com.binaryho.core.member.MemberService;
+import com.binaryho.core.whiteship.domain.Member;
+import com.binaryho.core.whiteship.domain.Study;
+import com.binaryho.core.whiteship.member.MemberService;
 import java.util.Optional;
 
 public class StudyService {

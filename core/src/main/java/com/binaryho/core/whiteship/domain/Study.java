@@ -1,6 +1,6 @@
-package com.binaryho.core.domain;
+package com.binaryho.core.whiteship.domain;
 
-import com.binaryho.core.study.StudyStatus;
+import com.binaryho.core.whiteship.study.StudyStatus;
 import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

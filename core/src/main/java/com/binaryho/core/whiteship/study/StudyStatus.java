@@ -1,4 +1,4 @@
-package com.binaryho.core.study;
+package com.binaryho.core.whiteship.study;
 
 public enum StudyStatus {
 
