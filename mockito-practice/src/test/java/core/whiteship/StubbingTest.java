@@ -1,4 +1,4 @@
-package core.study;
+package core.whiteship;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
