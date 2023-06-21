@@ -29,7 +29,6 @@ subprojects {
 
 	dependencies {
 		implementation 'org.springframework.boot:spring-boot-starter'
-
 		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
 		/* Test */
@@ -41,6 +40,8 @@ subprojects {
 		/* Lombok */
 		compileOnly 'org.projectlombok:lombok'
 		annotationProcessor 'org.projectlombok:lombok'
+
+		runtimeOnly 'com.h2database:h2'
 	}
 
 	tasks.named('test') {
@@ -53,7 +54,6 @@ project(':whiteship') {
 	jar { enabled = true }
 
 	dependencies {
-		runtimeOnly 'com.h2database:h2'
 	}
 }
 
@@ -63,5 +63,22 @@ project(':mockito-practice') {
 
 	dependencies {
 		implementation  project(':whiteship')
+	}
+}
+
+project('test-code-with-architecture-1') {
+	bootJar { enabled = true }
+	jar { enabled = false }
+
+	dependencies {
+
+		implementation 'org.springframework.boot:spring-boot-starter-web'
+		implementation 'org.springframework.boot:spring-boot-starter-mail'
+		implementation 'org.springframework.boot:spring-boot-starter-validation'
+		runtimeOnly 'com.mysql:mysql-connector-j'
+		implementation 'com.fasterxml.jackson.core:jackson-core:2.14.1'
+		implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.14.1'
+		implementation 'org.springdoc:springdoc-openapi-ui:1.5.12'
+		implementation 'org.springdoc:springdoc-openapi-ui:1.5.12'
 	}
 }

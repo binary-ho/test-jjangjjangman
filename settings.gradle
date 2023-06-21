@@ -1,4 +1,5 @@
 rootProject.name = 'test-jjangjjangman'
 include 'mockito-practice'
 include 'whiteship'
+include 'test-code-with-architecture-1'
 
