@@ -1,4 +1,4 @@
-package core.whiteship;
+package whiteship;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -9,8 +9,8 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 
-import com.binaryho.core.whiteship.domain.Member;
-import com.binaryho.core.whiteship.member.MemberService;
+import com.binaryho.whiteship.domain.Member;
+import com.binaryho.whiteship.member.MemberService;
 import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

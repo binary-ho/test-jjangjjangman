@@ -1,7 +1,7 @@
-package com.binaryho.core.whiteship.member;
+package com.binaryho.whiteship.member;
 
-import com.binaryho.core.whiteship.domain.Member;
-import com.binaryho.core.whiteship.domain.Study;
+import com.binaryho.whiteship.domain.Member;
+import com.binaryho.whiteship.domain.Study;
 import java.util.Optional;
 
 public interface MemberService {

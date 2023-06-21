@@ -1,4 +1,4 @@
-package core.whiteship;
+package whiteship;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,12 +8,12 @@ import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
 
-import com.binaryho.core.whiteship.domain.Member;
-import com.binaryho.core.whiteship.domain.Study;
-import com.binaryho.core.whiteship.member.MemberService;
-import com.binaryho.core.whiteship.study.StudyRepository;
-import com.binaryho.core.whiteship.study.StudyService;
-import com.binaryho.core.whiteship.study.StudyStatus;
+import com.binaryho.whiteship.domain.Member;
+import com.binaryho.whiteship.domain.Study;
+import com.binaryho.whiteship.member.MemberService;
+import com.binaryho.whiteship.study.StudyRepository;
+import com.binaryho.whiteship.study.StudyService;
+import com.binaryho.whiteship.study.StudyStatus;
 import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

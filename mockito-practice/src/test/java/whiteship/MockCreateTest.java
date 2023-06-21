@@ -1,15 +1,16 @@
-package core.whiteship;
+package whiteship;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
 
-import com.binaryho.core.whiteship.member.MemberService;
-import com.binaryho.core.whiteship.study.StudyRepository;
-import com.binaryho.core.whiteship.study.StudyService;
+import com.binaryho.whiteship.member.MemberService;
+import com.binaryho.whiteship.study.StudyRepository;
+import com.binaryho.whiteship.study.StudyService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.context.ApplicationEventPublisher;
 
 @ExtendWith(MockitoExtension.class)
 public class MockCreateTest {
