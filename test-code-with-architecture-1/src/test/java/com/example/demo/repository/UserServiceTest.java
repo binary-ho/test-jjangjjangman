@@ -6,9 +6,11 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
 
+import com.example.demo.exception.CertificationCodeNotMatchedException;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.model.UserStatus;
 import com.example.demo.model.dto.UserCreateDto;
+import com.example.demo.model.dto.UserUpdateDto;
 import com.example.demo.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -96,6 +98,66 @@ public class UserServiceTest {
             () -> assertThat(result.getEmail()).isEqualTo("test@naver.com"),
             () -> assertThat(result.getAddress()).isEqualTo("Mapo"),
             () -> assertThat(result.getNickname()).isEqualTo("jinhoho")
+        );
+        // FIXME : assertThat(result.getCertificationCode()).isEqualTo(헉!! 테스트 불가능!!)
+    }
+
+    @Test
+    void UserUpdateDto_를_이용하여_유저_정보를_수정할_수_있다() {
+        // Given
+        final Long ID = 2L;
+        final String newAddress = "newAddress";
+        final String newNickname = "newNickname";
+
+        UserUpdateDto userUpdateDto = UserUpdateDto.builder()
+            .nickname(newNickname)
+            .address(newAddress)
+            .build();
+
+        // When
+        UserEntity updateResult = userService.update(ID, userUpdateDto);
+
+        // Then
+        assertAll(
+            () -> assertThat(updateResult.getId()).isEqualTo(ID),
+            () -> assertThat(updateResult.getAddress()).isEqualTo(newAddress),
+            () -> assertThat(updateResult.getNickname()).isEqualTo(newNickname)
+        );
+    }
+
+    @Test
+    void user를_로그인_시키면_마지막_로그인_시간이_변경된다() {
+        // Given
+        // When
+        userService.login(2L);
+
+        // Then
+        UserEntity userEntity = userService.getById(2L);
+        assertThat(userEntity.getLastLoginAt()).isGreaterThan(0L);
+        // FIXME : assertThat(result.getLastLoginAt()).isEqualTo(헉!! 테스트 불가능!!)
+    }
+
+    @Test
+    void PENDING_상태의_유저를_인증_코드로_활성화_할_수_있다() {
+        // Given
+        final Long ID = 3L;
+        userService.verifyEmail(ID, "aaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa");
+
+        // When
+        UserEntity result = userService.getById(ID);
+
+        // Then
+        assertThat(result.getStatus()).isEqualTo(UserStatus.ACTIVE);
+    }
+
+    @Test
+    void PENDING_상태의_사용자는_틀린_인증_코드를_입력하면_예외를_발생시킨다() {
+        // Given
+        // When
+        // Then
+        assertAll(
+            () -> assertThatThrownBy(() -> userService.verifyEmail(3L, "틀린 코드"))
+                .isInstanceOf(CertificationCodeNotMatchedException.class)
         );
     }
 }
