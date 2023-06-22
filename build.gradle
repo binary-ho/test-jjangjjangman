@@ -62,7 +62,7 @@ project(':mockito-practice') {
 	jar { enabled = false }
 
 	dependencies {
-		implementation  project(':whiteship')
+		implementation project(':whiteship')
 	}
 }
 
@@ -80,5 +80,14 @@ project('test-code-with-architecture-1') {
 		implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.14.1'
 		implementation 'org.springdoc:springdoc-openapi-ui:1.5.12'
 		implementation 'org.springdoc:springdoc-openapi-ui:1.5.12'
+	}
+}
+
+project('test-code-with-architecture-2') {
+	bootJar { enabled = true }
+	jar { enabled = false }
+
+	dependencies {
+		implementation  project(':test-code-with-architecture-1')
 	}
 }
