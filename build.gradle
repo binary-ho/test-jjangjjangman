@@ -66,20 +66,29 @@ project(':mockito-practice') {
 	}
 }
 
+ext {
+	brandonProjectImplementationDependencies = [
+			'org.springframework.boot:spring-boot-starter-web',
+			'org.springframework.boot:spring-boot-starter-mail',
+			'org.springframework.boot:spring-boot-starter-validation',
+			'com.fasterxml.jackson.core:jackson-core:2.14.1',
+			'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.14.1',
+			'org.springdoc:springdoc-openapi-ui:1.5.12',
+			'org.springdoc:springdoc-openapi-ui:1.5.12'
+	]
+
+	brandonProjectRuntimeOnlyDependencies = [
+			'com.mysql:mysql-connector-j'
+	]
+}
+
 project('test-code-with-architecture-1') {
 	bootJar { enabled = true }
 	jar { enabled = false }
-
+	
 	dependencies {
-
-		implementation 'org.springframework.boot:spring-boot-starter-web'
-		implementation 'org.springframework.boot:spring-boot-starter-mail'
-		implementation 'org.springframework.boot:spring-boot-starter-validation'
-		runtimeOnly 'com.mysql:mysql-connector-j'
-		implementation 'com.fasterxml.jackson.core:jackson-core:2.14.1'
-		implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.14.1'
-		implementation 'org.springdoc:springdoc-openapi-ui:1.5.12'
-		implementation 'org.springdoc:springdoc-openapi-ui:1.5.12'
+		implementation brandonProjectImplementationDependencies
+		runtimeOnly brandonProjectRuntimeOnlyDependencies
 	}
 }
 
@@ -88,6 +97,7 @@ project('test-code-with-architecture-2') {
 	jar { enabled = false }
 
 	dependencies {
-		implementation  project(':test-code-with-architecture-1')
+		implementation brandonProjectImplementationDependencies
+		runtimeOnly brandonProjectRuntimeOnlyDependencies
 	}
 }
