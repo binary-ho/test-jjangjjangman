@@ -131,7 +131,7 @@ public class UserControllerTest {
 
     // TODO : 중요
     @Test
-    void 내_정보를_업데이트_할_수_있다() throws Exception {
+    void 사용자는_자신의_정보를_업데이트_할_수_있다() throws Exception {
         // Given
         final String NEW_NICKNAME = "이진호";
         final String NEW_ADDRESS = "아크로 서울 포레스트";
