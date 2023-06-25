@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.user.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
@@ -8,9 +8,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.example.demo.model.UserStatus;
-import com.example.demo.model.dto.UserUpdateDto;
-import com.example.demo.repository.UserRepository;
+import com.example.demo.user.domain.UserStatus;
+import com.example.demo.user.domain.UserUpdate;
+import com.example.demo.user.infrastructure.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -135,7 +135,7 @@ public class UserControllerTest {
         // Given
         final String NEW_NICKNAME = "이진호";
         final String NEW_ADDRESS = "아크로 서울 포레스트";
-        UserUpdateDto userUpdateDto = UserUpdateDto.builder()
+        UserUpdate userUpdate = UserUpdate.builder()
             .nickname(NEW_NICKNAME)
             .address(NEW_ADDRESS)
             .build();
@@ -145,7 +145,7 @@ public class UserControllerTest {
         mockMvc.perform(put(String.format("/api/users/me"))
                 .header("EMAIL", EMAIL)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(userUpdateDto)))
+                .content(objectMapper.writeValueAsString(userUpdate)))
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.id").value(ID))
             .andExpect(jsonPath("$.email").value(EMAIL))
