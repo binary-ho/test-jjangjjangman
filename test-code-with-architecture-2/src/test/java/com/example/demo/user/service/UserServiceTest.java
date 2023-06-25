@@ -8,10 +8,10 @@ import static org.mockito.Mockito.doNothing;
 
 import com.example.demo.common.domain.exception.CertificationCodeNotMatchedException;
 import com.example.demo.common.domain.exception.ResourceNotFoundException;
+import com.example.demo.user.domain.User;
 import com.example.demo.user.domain.UserCreate;
 import com.example.demo.user.domain.UserStatus;
 import com.example.demo.user.domain.UserUpdate;
-import com.example.demo.user.infrastructure.UserEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -38,7 +38,7 @@ public class UserServiceTest {
         String email = "active@naver.com";
 
         // When
-        UserEntity result = userService.getByEmail(email);
+        User result = userService.getByEmail(email);
 
         // Then
         assertThat(result.getNickname()).isEqualTo("binary-ho");
@@ -60,7 +60,7 @@ public class UserServiceTest {
     void getById은_ACTIVE_상태인_유저를_찾아올_수_있다() {
         // Given
         // When
-        UserEntity result = userService.getById(2L);
+        User result = userService.getById(2L);
 
         // Then
         assertThat(result.getNickname()).isEqualTo("binary-ho");
@@ -89,7 +89,7 @@ public class UserServiceTest {
         doNothing().when(mailSender).send(any(SimpleMailMessage.class));
 
         // When
-        UserEntity result = userService.create(userCreate);
+        User result = userService.create(userCreate);
 
         // Then
         assertAll(
@@ -115,7 +115,7 @@ public class UserServiceTest {
             .build();
 
         // When
-        UserEntity updateResult = userService.update(ID, userUpdate);
+        User updateResult = userService.update(ID, userUpdate);
 
         // Then
         assertAll(
@@ -132,7 +132,7 @@ public class UserServiceTest {
         userService.login(2L);
 
         // Then
-        UserEntity userEntity = userService.getById(2L);
+        User userEntity = userService.getById(2L);
         assertThat(userEntity.getLastLoginAt()).isGreaterThan(0L);
         // FIXME : assertThat(result.getLastLoginAt()).isEqualTo(헉!! 테스트 불가능!!)
     }
@@ -144,7 +144,7 @@ public class UserServiceTest {
         userService.verifyEmail(ID, "aaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa");
 
         // When
-        UserEntity result = userService.getById(ID);
+        User result = userService.getById(ID);
 
         // Then
         assertThat(result.getStatus()).isEqualTo(UserStatus.ACTIVE);
