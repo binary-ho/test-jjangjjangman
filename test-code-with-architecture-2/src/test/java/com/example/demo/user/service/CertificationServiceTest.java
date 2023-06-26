@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 class CertificationServiceTest {
 
     @Test
-    void 테스트() {
+    void 이메일을_전송할_수_있다() {
         // Given
         FakeMailSender fakeMailSender = new FakeMailSender();
         CertificationService certificationService = new CertificationService(fakeMailSender);
