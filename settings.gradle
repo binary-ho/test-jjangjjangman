@@ -1,6 +1,9 @@
 rootProject.name = 'test-jjangjjangman'
 include 'mockito-practice'
-include 'whiteship'
+include 'core'
+include 'restclient'
 include 'test-code-with-architecture-1'
 include 'test-code-with-architecture-2'
+include 'jyujyu-test'
+include 'restclient'
 

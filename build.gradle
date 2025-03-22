@@ -51,7 +51,7 @@ subprojects {
 	}
 }
 
-project(':whiteship') {
+project(':core') {
 	bootJar { enabled = false }
 	jar { enabled = true }
 
@@ -64,7 +64,16 @@ project(':mockito-practice') {
 	jar { enabled = false }
 
 	dependencies {
-		implementation project(':whiteship')
+		implementation project(':core')
+	}
+}
+
+project(':restclient') {
+	bootJar { enabled = true }
+	jar { enabled = false }
+
+	dependencies {
+		implementation project(':core')
 	}
 }
 
@@ -97,6 +106,16 @@ project('test-code-with-architecture-1') {
 project('test-code-with-architecture-2') {
 	bootJar { enabled = true }
 	jar { enabled = false }
+
+	dependencies {
+		implementation brandonProjectImplementationDependencies
+		runtimeOnly brandonProjectRuntimeOnlyDependencies
+	}
+}
+
+project(':jyujyu-test') {
+	bootJar { enabled = false }
+	jar { enabled = true }
 
 	dependencies {
 		implementation brandonProjectImplementationDependencies
