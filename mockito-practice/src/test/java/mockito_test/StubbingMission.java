@@ -10,10 +10,10 @@ import static org.mockito.Mockito.when;
 
 import com.binaryho.core.domain.Member;
 import com.binaryho.core.domain.Study;
-import com.binaryho.core.member.MemberService;
-import com.binaryho.core.study.StudyRepository;
-import com.binaryho.core.study.StudyService;
-import com.binaryho.core.study.StudyStatus;
+import com.binaryho.core.domain.StudyStatus;
+import com.binaryho.core.repository.StudyRepository;
+import com.binaryho.core.service.MemberService;
+import com.binaryho.core.service.StudyService;
 import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

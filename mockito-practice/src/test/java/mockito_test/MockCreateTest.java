@@ -3,9 +3,9 @@ package mockito_test;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
 
-import com.binaryho.core.member.MemberService;
-import com.binaryho.core.study.StudyRepository;
-import com.binaryho.core.study.StudyService;
+import com.binaryho.core.repository.StudyRepository;
+import com.binaryho.core.service.MemberService;
+import com.binaryho.core.service.StudyService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;

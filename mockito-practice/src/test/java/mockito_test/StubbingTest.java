@@ -10,7 +10,7 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 
 import com.binaryho.core.domain.Member;
-import com.binaryho.core.member.MemberService;
+import com.binaryho.core.service.MemberService;
 import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

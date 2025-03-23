@@ -1,6 +1,5 @@
 package com.binaryho.core.domain;
 
-import com.binaryho.core.study.StudyStatus;
 import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

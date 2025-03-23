@@ -1,4 +1,4 @@
-package com.binaryho.core.member;
+package com.binaryho.core.service;
 
 import com.binaryho.core.domain.Member;
 import com.binaryho.core.domain.Study;

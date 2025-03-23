@@ -1,4 +1,4 @@
-package com.binaryho.core.member;
+package com.binaryho.core.service;
 
 public class MemberNotFoundException extends RuntimeException {
 }
